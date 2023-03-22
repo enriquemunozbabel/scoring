@@ -1,8 +1,11 @@
 package com.vehicle.renting.models;
 
-public class Profesion {
+import javax.validation.constraints.NotNull;
 
+public class Profesion {
+    @NotNull
     private int profesionId;
+    @NotNull
     private String descripcion;
 
     public Profesion(int profesionId, String descripcion) {

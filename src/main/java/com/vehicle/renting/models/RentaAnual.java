@@ -1,17 +1,28 @@
 package com.vehicle.renting.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class RentaAnual {
 
+    @NotNull
     private int rentaId;
+    @NotNull
     private Persona persona;
+    @NotNull
     private Profesion profesion;
+    @NotNull
     private int anio;
+    @NotNull
     private int importe;
+    @NotNull
     private int isCuentaPropia;
+    @NotNull
     private String iae;
     private String cifEmpleador;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date fechaInicioEmpleo;
 
     public RentaAnual(int rentaId, Persona persona, Profesion profesion, int anio, int importe, int isCuentaPropia, String iae, String cifEmpleador, Date fechaInicioEmpleo) {

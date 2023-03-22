@@ -1,20 +1,31 @@
 package com.vehicle.renting.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 public class Persona {
-
+    @NotNull
     private int personaId;
     private boolean direccionDomicilioIgualNotificacion = true;
+    @NotNull
     private String nombre;
+    @NotNull
     private String apellido1;
     private String apellido2;
+    @NotNull
     private Direccion direccionDomicilio;
+    @NotNull
     private Direccion direccionNotificacion;
+    @NotNull
     private String nif;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date fechaNacimiento;
+    @NotNull
     private String nacionalidad;
     private int scoring;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date fechaScoring;
 
     public Persona(int personaId, boolean direccionDomicilioIgualNotificacion, String nombre, String apellido1, String apellido2, Direccion direccionDomicilio, Direccion direccionNotificacion, String nif, Date fechaNacimiento, String nacionalidad, int scoring, Date fechaScoring) {
