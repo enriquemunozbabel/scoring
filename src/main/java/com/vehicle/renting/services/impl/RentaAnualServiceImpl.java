@@ -29,9 +29,19 @@ public class RentaAnualServiceImpl implements RentaAnualService {
     @Transactional
     @Override
     public RentaAnual addRentaAnual(RentaAnual rentaAnual) throws RequiredMissingFieldException {
-        this.profesionMapper.insertProfesion(rentaAnual.getProfesion());
-        this.personaService.addPersona(rentaAnual.getPersona());
+        this.addProfesionRenta(rentaAnual.getProfesion());
+        this.addPersonaRenta(rentaAnual.getPersona());
         this.rentaAnualMapper.insertRentaAnual(rentaAnual);
         return rentaAnual;
+    }
+
+    private Persona addPersonaRenta(Persona persona) throws RequiredMissingFieldException {
+        this.personaService.addPersona(persona);
+        return persona;
+    }
+
+    private Profesion addProfesionRenta(Profesion profesion){
+        this.profesionMapper.insertProfesion(profesion);
+        return profesion;
     }
 }
